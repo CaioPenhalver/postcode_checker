@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: postgres
+  port: 5432
+  username: postcode_checker
+  password: postgrespassword
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: postcode_checker_development
+  schema_search_path: myapp,sharedapp,public
+
+test:
+  <<: *default
+  database: postcode_checker_test
+
+production:
+  <<: *default
+  database: postcode_checker_production
+  username: postcode_checker
+  password: <%= ENV['POSTCODE_CHECKER_DATABASE_PASSWORD'] %>

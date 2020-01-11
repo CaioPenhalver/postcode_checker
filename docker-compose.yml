@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/postcode_checker
+    links:
+      - postgres
+    ports:
+      - 3000:3000
+      - 80:3000
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_USER: postcode_checker
+    volumes:
+      - ./config/db:/var/lib/postgresql/config/db
