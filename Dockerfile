@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:2.6.0
 MAINTAINER Caio <penhalvercaio@gmail.com>
 
 RUN apt-get update -qq \
