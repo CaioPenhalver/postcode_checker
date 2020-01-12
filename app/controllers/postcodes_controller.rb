@@ -2,9 +2,7 @@
 
 class PostcodesController < ApplicationController
   def index
-    @postcodes = Postcode.ordered_by_update_date(
-      page: params[:page]
-    )
+    @postcodes = Postcode.ordered_by_update_date(page: params[:page])
   end
 
   def show

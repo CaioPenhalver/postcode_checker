@@ -53,5 +53,51 @@ RSpec.describe District, type: :model do
         end
       end
     end
+
+    describe '.ordered_by_update_date' do
+      context 'when it is called without parameters' do
+        context 'when there is only one page' do
+          let!(:district_ids) { create_list(:district, 5).map(&:id) }
+
+          it 'should return them ordered by update date' do
+            districts = described_class.ordered_by_update_date
+
+            expect(districts.first.id).to eq district_ids.last
+            expect(districts.last.id).to eq district_ids.first
+          end
+        end
+
+        context 'when there are more than one page' do
+          before { create_list(:district, 12) }
+          let(:expected_count_per_page) { 10 }
+          let(:total_pages) { 2 }
+
+          it 'should return them ordered by update date' do
+            districts = described_class.ordered_by_update_date
+
+            expect(districts.per_page).to eq expected_count_per_page
+            expect(districts.total_pages).to eq total_pages
+          end
+        end
+      end
+
+      context 'when it is called passing parameters' do
+        let!(:postcoe_ids) { create_list(:district, 12).map(&:id) }
+        let(:per_page) { 4 }
+        let(:total_pages) { 3 }
+        let(:current_page) { 3 }
+
+        it 'should return them ordered by update date' do
+          districts = described_class
+            .ordered_by_update_date(:asc,
+                                    page: current_page,
+                                    per_page: per_page)
+
+          expect(districts.per_page).to eq per_page
+          expect(districts.total_pages).to eq total_pages
+          expect(districts.last.id).to eq postcoe_ids.last
+        end
+      end
+    end
   end
 end

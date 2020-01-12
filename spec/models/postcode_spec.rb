@@ -75,7 +75,7 @@ RSpec.describe Postcode, type: :model do
     end
 
     context 'when it is called passing parameters' do
-      let!(:postcoe_ids) { create_list(:postcode, 12).map(&:id) }
+      let!(:postcode_ids) { create_list(:postcode, 12).map(&:id) }
       let(:per_page) { 4 }
       let(:total_pages) { 3 }
       let(:current_page) { 3 }
@@ -88,7 +88,7 @@ RSpec.describe Postcode, type: :model do
 
         expect(postcodes.per_page).to eq per_page
         expect(postcodes.total_pages).to eq total_pages
-        expect(postcodes.last.id).to eq postcoe_ids.last
+        expect(postcodes.last.id).to eq postcode_ids.last
       end
     end
   end

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class DistrictsController < ApplicationController
+  def index
+    @districts = District.ordered_by_update_date(page: params[:page])
+  end
+
   def show
     @district = District.find(params[:id])
   end
