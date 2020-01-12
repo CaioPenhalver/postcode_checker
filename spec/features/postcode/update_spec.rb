@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Update a new postcode' do
+feature 'Update postcode' do
   scenario 'successfully' do
     postcode = Postcode.create(value: 'SE17QD')
     new_value = 'SE17QA'
