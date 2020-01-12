@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class PostcodesController < ApplicationController
+  def index
+    @postcodes = Postcode.ordered_by_update_date(
+      page: params[:page]
+    )
+  end
+
   def show
     @postcode = Postcode.find(params[:id])
   end

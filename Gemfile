@@ -17,6 +17,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+gem 'will_paginate', '~> 3.1.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -27,6 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'pry'
   gem 'rubocop', require: false
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -44,4 +46,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'database_cleaner'
+  gem 'simplecov', require: false
 end

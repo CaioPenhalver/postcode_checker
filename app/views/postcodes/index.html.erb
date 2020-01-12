@@ -1,0 +1,4 @@
+<% @postcodes.each do |postcode| %>
+  <%= postcode.value %>
+<% end %>
+<%= will_paginate @postcodes %>
