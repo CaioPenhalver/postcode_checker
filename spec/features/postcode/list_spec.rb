@@ -8,7 +8,6 @@ feature 'List postcodes' do
 
     visit postcodes_path
 
-
     postcodes.each do |postcode|
       expect(page).to have_content postcode.value
     end
