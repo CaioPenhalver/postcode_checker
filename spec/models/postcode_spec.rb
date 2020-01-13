@@ -3,14 +3,24 @@
 require 'rails_helper'
 
 RSpec.describe Postcode, type: :model do
-  describe '#save' do
-    subject { described_class.new(value: value).save }
+  describe '#create' do
+    subject { described_class.create(value: value) }
 
-    context 'when it saves successfully' do
-      let(:value) { 'SE17QA' }
+    context 'when it is created successfully' do
+      context 'with space' do
+        let(:value) { 'SE1 7QA' }
 
-      it 'create postcode' do
-        expect(subject).to be_truthy
+        it 'should trim the space' do
+          expect(subject.value).to eq 'SE17QA'
+        end
+      end
+
+      context 'with downcase letter' do
+        let(:value) { 'Se17qA' }
+
+        it 'should make all letters uppercase' do
+          expect(subject.value).to eq 'SE17QA'
+        end
       end
     end
   end

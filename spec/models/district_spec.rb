@@ -89,9 +89,9 @@ RSpec.describe District, type: :model do
 
         it 'should return them ordered by update date' do
           districts = described_class
-            .ordered_by_update_date(:asc,
-                                    page: current_page,
-                                    per_page: per_page)
+                      .ordered_by_update_date(:asc,
+                                              page: current_page,
+                                              per_page: per_page)
 
           expect(districts.per_page).to eq per_page
           expect(districts.total_pages).to eq total_pages

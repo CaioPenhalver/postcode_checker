@@ -1,0 +1,9 @@
+development: &dev
+  postcode:
+    host: http://postcodes.io
+
+test:
+  <<: *dev
+
+production:
+  <<: *dev

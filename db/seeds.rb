@@ -1,8 +1,20 @@
-# frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+def raise_error(msg)
+  raise "Seeds: something went wrong! Error: #{msg}"
+end
+
+def log(msg)
+  puts "Creating #{msg}"
+  puts "------------------"
+end
+
+%w[Southwark Lambeth].each do |name|
+  log(name)
+  district = District.create(name: name)
+  raise_error(district.errors.full_messages) unless district.valid?
+end
+
+%w[SH241AA SH241AB].each do |value|
+  log(value)
+  postcode = Postcode.create(value: value)
+  raise_error(postcode.errors.full_messages) unless postcode.valid?
+end

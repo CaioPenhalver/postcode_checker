@@ -5,6 +5,8 @@ SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'capybara/rspec'
 require 'spec_helper'
+require 'webmock/rspec'
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)

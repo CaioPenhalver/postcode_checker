@@ -10,4 +10,8 @@ class Postcode < ApplicationRecord
   validates :value,
             uniqueness: true,
             format: { with: POSTCODE_FORMAT, message: 'format error' }
+
+  before_save do
+    self.value = value.upcase.gsub(' ', '')
+  end
 end
