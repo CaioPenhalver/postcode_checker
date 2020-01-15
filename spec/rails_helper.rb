@@ -8,7 +8,7 @@ require 'spec_helper'
 require 'webmock/rspec'
 require 'database_cleaner'
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path('../config/environment', __dir__)
 

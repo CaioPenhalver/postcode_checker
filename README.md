@@ -23,7 +23,7 @@ cd postcode_checker
 docker-compose build
 ```
 ```sh
-docker-compose run --rm web rails db:setup
+docker-compose run --rm web bin/setup
 ```
 
 ### Running Application

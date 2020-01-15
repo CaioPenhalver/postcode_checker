@@ -6,11 +6,10 @@ class WhitelistController < ApplicationController
   def search
     if Postcode.valid_format?(params[:postcode])
       @whitelist = WhitelistService.new.available_postcode(params[:postcode])
-      render 'index'
     else
       send_error_message
-      render 'index'
     end
+    render 'index'
   end
 
   private

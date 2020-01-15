@@ -80,7 +80,7 @@ feature 'Check if postcode is in the service area' do
 
     click_on 'Search'
 
-    error = "It is not a valid format for a postcode!"
+    error = 'It is not a valid format for a postcode!'
     expect(page).to have_content error
   end
 end
