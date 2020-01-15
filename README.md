@@ -49,15 +49,13 @@ docker-compose run --rm -e RAILS_ENV=test web rspec
 
 - Postgres
 - Ruby 2.6
+- Nodejs
 
 
 ### Setting up
 
 ```sh
-bundle install
-```
-```sh
-bundle exec rails db:setup
+bundle exec bin/setup
 ```
 
 ### Running Application
