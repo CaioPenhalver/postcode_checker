@@ -6,6 +6,7 @@ SimpleCov.start
 require 'capybara/rspec'
 require 'spec_helper'
 require 'webmock/rspec'
+require 'database_cleaner'
 
 ENV['RAILS_ENV'] ||= 'test'
 
