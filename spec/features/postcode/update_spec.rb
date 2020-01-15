@@ -24,6 +24,6 @@ feature 'Update postcode' do
 
     click_on 'Update Postcode'
 
-    expect(page).to have_content 'Edit'
+    expect(page).to have_content 'Edit Postcode'
   end
 end

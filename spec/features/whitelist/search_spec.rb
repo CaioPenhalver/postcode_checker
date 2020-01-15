@@ -49,7 +49,6 @@ feature 'Check if postcode is in the service area' do
     create(:district, name: district)
     create(:postcode, value: 'SE17QD')
 
-
     visit whitelist_index_path
 
     fill_in 'Postcode', with: not_found_postcode
@@ -59,4 +58,3 @@ feature 'Check if postcode is in the service area' do
     expect(page).to have_content not_found_postcode
   end
 end
-

@@ -33,6 +33,11 @@ class DistrictsController < ApplicationController
     end
   end
 
+  def destroy
+    District.find(params[:id])&.destroy
+    redirect_to action: 'index'
+  end
+
   private
 
   def district_params

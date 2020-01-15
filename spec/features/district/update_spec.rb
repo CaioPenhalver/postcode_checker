@@ -26,6 +26,6 @@ feature 'Update district' do
 
     click_on 'Update District'
 
-    expect(page).to have_content 'Edit'
+    expect(page).to have_content 'Edit District'
   end
 end

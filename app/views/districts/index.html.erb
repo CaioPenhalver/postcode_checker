@@ -5,9 +5,11 @@
       <% @districts.each do |district| %>
         <li class="collection-item">
           <%= district.name %>
-          <%= link_to('Edit', edit_district_path(district.id), class: 'secondary-content')%>
-          <%= link_to 'Delete', district_path(district), method: :delete,
-              data: { confirm: 'Are you sure?' }, class: 'secondary-content' %>
+          <%= link_to('Edit', edit_district_path(district.id), class: 'secondary-content',
+              style: 'margin-left: 4px')%>
+          <%= link_to('Delete', district_path(district), method: :delete,
+                      data: { confirm: 'Are you sure?' }, class: 'secondary-content',
+                      style: 'margin-right: 4px') %>
         </li>
       <% end %>
       <%= will_paginate @districts %>

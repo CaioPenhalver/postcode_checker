@@ -20,6 +20,6 @@ feature 'Create a new district' do
 
     click_on 'Create District'
 
-    expect(page).to have_content 'New'
+    expect(page).to have_content 'Register New District'
   end
 end

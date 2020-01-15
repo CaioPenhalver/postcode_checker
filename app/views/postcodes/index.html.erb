@@ -5,9 +5,11 @@
       <% @postcodes.each do |postcode| %>
         <li class="collection-item">
           <%= postcode.value %>
-          <%= link_to('Edit', edit_postcode_path(postcode), class: 'secondary-content')%>
-          <%= link_to 'Delete', postcode_path(postcode), method: :delete,
-              data: { confirm: 'Are you sure?' }, class: 'secondary-content' %>
+          <%= link_to('Edit', edit_postcode_path(postcode), class: 'secondary-content',
+                      style: 'margin-left: 4px')%>
+          <%= link_to('Delete', postcode_path(postcode), method: :delete,
+                      data: { confirm: 'Are you sure?' }, class: 'secondary-content',
+                      style: 'margin-right: 4px') %>
         </li>
       <% end %>
     </ul>
