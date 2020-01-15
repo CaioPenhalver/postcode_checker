@@ -20,6 +20,6 @@ feature 'Create a new postcode' do
 
     click_on 'Create Postcode'
 
-    expect(page).to have_content 'NEW'
+    expect(page).to have_content 'New'
   end
 end

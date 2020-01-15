@@ -5,10 +5,6 @@ class PostcodesController < ApplicationController
     @postcodes = Postcode.ordered_by_update_date(page: params[:page])
   end
 
-  def show
-    @postcode = Postcode.find(params[:id])
-  end
-
   def new
     @postcode = Postcode.new
   end
@@ -17,7 +13,7 @@ class PostcodesController < ApplicationController
     @postcode = Postcode.new(postcode_params)
 
     if @postcode.save
-      redirect_to @postcode
+      redirect_to action: 'index'
     else
       render 'new'
     end
@@ -31,7 +27,7 @@ class PostcodesController < ApplicationController
     @postcode = Postcode.find(params[:id])
 
     if @postcode.update(postcode_params)
-      redirect_to @postcode
+      redirect_to action: 'index'
     else
       render 'edit'
     end

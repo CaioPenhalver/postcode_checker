@@ -1,4 +1,16 @@
-<% @postcodes.each do |postcode| %>
-  <%= postcode.value %>
-<% end %>
-<%= will_paginate @postcodes %>
+<div class="row">
+  <div class="col s6 offset-s3">
+    <h5 align="center">Postcode Whitelist</h5>
+    <ul class="collection">
+      <% @postcodes.each do |postcode| %>
+        <li class="collection-item">
+          <%= postcode.value %>
+          <%= link_to('Edit', edit_postcode_path(postcode), class: 'secondary-content')%>
+          <%= link_to 'Delete', postcode_path(postcode), method: :delete,
+              data: { confirm: 'Are you sure?' }, class: 'secondary-content' %>
+        </li>
+      <% end %>
+    </ul>
+    <%= will_paginate @postcodes %>
+  </div>
+</div>

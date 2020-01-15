@@ -5,10 +5,6 @@ class DistrictsController < ApplicationController
     @districts = District.ordered_by_update_date(page: params[:page])
   end
 
-  def show
-    @district = District.find(params[:id])
-  end
-
   def new
     @district = District.new
   end
@@ -17,7 +13,7 @@ class DistrictsController < ApplicationController
     @district = District.new(district_params)
 
     if @district.save
-      redirect_to @district
+      redirect_to action: 'index'
     else
       render 'new'
     end
@@ -31,7 +27,7 @@ class DistrictsController < ApplicationController
     @district = District.find(params[:id])
 
     if @district.update(district_params)
-      redirect_to @district
+      redirect_to action: 'index'
     else
       render 'edit'
     end

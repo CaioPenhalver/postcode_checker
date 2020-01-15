@@ -1,20 +1,39 @@
-<%= form_tag(search_whitelist_index_path, method: :get) do %>
-  <%= label_tag(:postcode, "Postcode:") %>
-  <%= text_field_tag(:postcode) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <div><h4>Check Postcode</h4></div>
+      </div>
+      <div class="input-field col s6 offset-s3">
+        <%= form_tag(search_whitelist_index_path, method: :get, class: 'validate') do %>
+          <%= label_tag(:postcode, "Postcode:") %>
+          <%= text_field_tag(:postcode) %>
+          <%= submit_tag("Search", class: 'btn waves-effect waves-light', style: 'width: 100%') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-</div>
-<div>
-  <% if @whitelist.present? %>
-    <div>
-    <%= @whitelist.postcode %>
-    </div>
-    <div>
-    <%= @whitelist.source %>
-    </div>
-    <div>
-    <%= @whitelist.available_postcode? %>
-    </div>
-  <% end %>
+  <div>
+    <% if @whitelist.present? %>
+      <div class="col s6 offset-s3">
+        <table>
+          <tbody>
+            <tr>
+              <td>Postcode</td>
+              <td><%= @whitelist.postcode %></td>
+            </tr>
+            <tr>
+              <td>Whitelist</td>
+              <td><%= @whitelist.source %></td>
+            </tr>
+            <tr>
+              <td>Available</td>
+              <td><%= @whitelist.available_postcode?%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
 </div>
