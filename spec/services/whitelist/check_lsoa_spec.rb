@@ -13,7 +13,7 @@ RSpec.describe Whitelist::CheckLsoa do
   let(:district_name) { 'Southwark' }
 
   subject do
-    described_class.new(district_class, postcode)
+    described_class.new(postcode, district_class)
   end
 
   describe '#execute' do

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# It's an interface providing a service to check postcodes
 class WhitelistService
   def initialize(rules = Whitelist::Rules)
     @rules = rules

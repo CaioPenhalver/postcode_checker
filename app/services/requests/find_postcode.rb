@@ -1,21 +1,24 @@
 # frozen_string_literal: true
 
-class Requests::FindPostcode < Requests::Request
-  attr_reader :postcode
+# Request to retrieve postcode
+module Requests
+  class FindPostcode < Request
+    attr_reader :postcode
 
-  def initialize(postcode)
-    @postcode = postcode
-  end
+    def initialize(postcode)
+      @postcode = postcode
+    end
 
-  def host
-    ExternalApis.postcode
-  end
+    def host
+      ExternalApis.postcode
+    end
 
-  def path
-    "/postcodes/#{postcode}"
-  end
+    def path
+      "/postcodes/#{postcode}"
+    end
 
-  def method
-    :get
+    def method
+      :get
+    end
   end
 end

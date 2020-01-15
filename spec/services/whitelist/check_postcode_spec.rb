@@ -7,7 +7,7 @@ RSpec.describe Whitelist::CheckPostcode do
   let(:postcode_value) { 'SH241AB' }
 
   subject do
-    described_class.new(postcode_class, postcode_value)
+    described_class.new(postcode_value, postcode_class)
   end
 
   describe '#execute' do
