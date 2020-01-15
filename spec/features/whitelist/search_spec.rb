@@ -57,4 +57,30 @@ feature 'Check if postcode is in the service area' do
 
     expect(page).to have_content not_found_postcode
   end
+
+  scenario 'give postcode does not have a valid format' do
+    not_valid_format = 'lkjkj'
+
+    visit whitelist_index_path
+
+    fill_in 'Postcode', with: not_valid_format
+
+    click_on 'Search'
+
+    error = "#{not_valid_format} is not a valid format for a postcode!"
+    expect(page).to have_content error
+  end
+
+  scenario 'blank input' do
+    blank_input = ''
+
+    visit whitelist_index_path
+
+    fill_in 'Postcode', with: blank_input
+
+    click_on 'Search'
+
+    error = "It is not a valid format for a postcode!"
+    expect(page).to have_content error
+  end
 end

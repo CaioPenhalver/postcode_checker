@@ -4,13 +4,19 @@ class WhitelistController < ApplicationController
   def index; end
 
   def search
-    @whitelist = WhitelistService.new.available_postcode(postcode)
-    render 'index'
+    if Postcode.valid_format?(params[:postcode])
+      @whitelist = WhitelistService.new.available_postcode(params[:postcode])
+      render 'index'
+    else
+      send_error_message
+      render 'index'
+    end
   end
 
   private
 
-  def postcode
-    params.require(:postcode)
+  def send_error_message
+    postcode = params[:postcode].present? ? params[:postcode] : 'It'
+    flash[:error] = "#{postcode} is not a valid format for a postcode!"
   end
 end

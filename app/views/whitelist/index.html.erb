@@ -5,6 +5,9 @@
         <div><h4>Check Postcode</h4></div>
       </div>
       <div class="input-field col s6 offset-s3">
+        <% if flash[:error] %>
+          <p style="color: red"><%= flash[:error] %></p>
+        <% end %>
         <%= form_tag(search_whitelist_index_path, method: :get, class: 'validate') do %>
           <%= label_tag(:postcode, "Postcode:") %>
           <%= text_field_tag(:postcode) %>

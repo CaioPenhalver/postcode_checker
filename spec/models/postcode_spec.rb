@@ -92,9 +92,9 @@ RSpec.describe Postcode, type: :model do
 
       it 'should return them ordered by update date' do
         postcodes = described_class
-                    .ordered_by_update_date(:asc,
-                                            page: current_page,
-                                            per_page: per_page)
+          .ordered_by_update_date(:asc,
+                                  page: current_page,
+                                  per_page: per_page)
 
         expect(postcodes.per_page).to eq per_page
         expect(postcodes.total_pages).to eq total_pages
@@ -102,4 +102,38 @@ RSpec.describe Postcode, type: :model do
       end
     end
   end
+
+  describe '.valid_format?' do
+    context 'when str has a valid format' do
+      let(:strs) { ['SE17QD', 'SW5 7ND', 'se17Qd'] }
+
+      it 'should return true' do
+        strs.each do |str|
+          expect(described_class.valid_format?(str)).to be_truthy
+        end
+      end
+
+      context 'when str does not have a valid format' do
+        let(:strs) { ['SE17QD8', 'SW% 7ND', 's.17Qd', ''] }
+
+        it 'should return true' do
+          strs.each do |str|
+            expect(described_class.valid_format?(str)).to be_falsey
+          end
+        end
+      end
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+

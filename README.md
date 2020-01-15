@@ -31,6 +31,12 @@ docker-compose run --rm web rails db:setup
 ```sh
 docker-compose up
 ```
+The application is running on [localhost](http://localhost:3000)
+
+Shutting down the containers
+```sh
+docker-compose down
+```
 
 ### Running Tests
 
@@ -59,6 +65,7 @@ bundle exec rails db:setup
 ```sh
 RAILS_ENV=development bundle exec rails server
 ```
+The application is running on [localhost](http://localhost:3000)
 
 ### Running Tests
 
